@@ -38,8 +38,8 @@ When you run the script and provide a PDF:
 1.  **Clone the Repository (or download files):**
     ```bash
     # If cloning from GitHub later:
-    # git clone <repository-url>
-    # cd pdf_rag_chatbot
+    git clone <repository-url>
+    cd interactive-pdf-qa
     ```
     *(Ensure you have Python 3.9+ installed)*
 
@@ -52,7 +52,7 @@ When you run the script and provide a PDF:
     .\.venv\Scripts\activate
 
     # Activate (macOS/Linux)
-    # source .venv/bin/activate
+    source .venv/bin/activate
     ```
 
 3.  **Install Dependencies:**
