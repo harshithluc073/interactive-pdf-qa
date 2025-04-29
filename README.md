@@ -38,7 +38,7 @@ When you run the script and provide a PDF:
 1.  **Clone the Repository (or download files):**
     ```bash
     # If cloning from GitHub later:
-    git clone <repository-url>
+    git clone https://github.com/073harshith073/interactive-pdf-qa
     cd interactive-pdf-qa
     ```
     *(Ensure you have Python 3.9+ installed)*
