@@ -94,16 +94,29 @@ When you run the script and provide a PDF:
 
 4.  **To stop**, type `quit` or `exit` at the `Query: ` prompt and press Enter, or press `Ctrl+C`.
 
-## 🛠️ Technologies Used
+##  보안 관련 고려사항
+
+*   **API 키 관리**: 이 애플리케이션은 `.env` 파일에 저장된 OpenRouter API 키가 필요합니다. 이 파일을 안전하게 보호하고 버전 제어(예: Git)에 커밋하지 마십시오. `.gitignore` 파일은 이를 방지하도록 이미 설정되어 있습니다.
+
+*   **전송 중 데이터**: OpenRouter API와의 모든 통신은 HTTPS를 통해 이루어지므로, 사용자의 기계와 OpenRouter 서버 간의 데이터는 전송 중에 암호화됩니다.
+
+*   **저장 데이터**: 성능 향상을 위해 이 도구는 처리된 PDF의 텍스트와 생성된 벡터 인덱스를 로컬 `.cache` 디렉터리에 저장합니다.
+    *   **이 캐시는 암호화되지 않습니다.** 민감한 정보가 포함된 PDF를 처리하는 경우, 파일 시스템 권한 설정이나 전체 디스크 암호화와 같은 운영 체제 수준의 보안 조치를 사용하여 이 디렉토리를 보호해야 합니다.
+
+*   **의존성**: 항상 신뢰할 수 있는 소스에서 `requirements.txt`에 나열된 의존성을 설치하십시오.
+
+## 🛠️ 사용된 기술
 
 *   **Python 3.9+**
-*   **LlamaIndex:** Core RAG framework orchestration.
-*   **OpenRouter:** API gateway providing access to LLMs (using `qwen/qwen3-30b-a3b:free`).
-*   **Sentence Transformers (`all-MiniLM-L6-v2`):** Text embedding model via Hugging Face.
-*   **PyPDF2:** Extracting text from PDF documents.
-*   **Requests:** Making API calls in the custom LLM class.
-*   **python-dotenv:** Loading environment variables (API keys).
+*   **LlamaIndex**: 핵심 RAG 프레임워크 오케스트레이션.
+*   **OpenRouter**: LLM에 대한 액세스를 제공하는 API 게이트웨이 (`qwen/qwen3-30b-a3b:free` 사용).
+*   **Sentence Transformers (`all-MiniLM-L6-v2`)**: Hugging Face를 통한 텍스트 임베딩 모델.
+*   **PyPDF2**: PDF 문서에서 텍스트 추출.
+*   **Requests**: 사용자 정의 LLM 클래스에서 API 호출.
+*   **python-dotenv**: 환경 변수(API 키) 로딩.
+*   **pytest**: 단위 및 통합 테스트용.
+*   **reportlab**: 테스트용 샘플 PDF 생성용.
 
-## License
+## 라이선스
 
 This project is licensed under the MIT License. Visit [https://opensource.org/licenses/MIT](https://opensource.org/licenses/MIT) for details.
